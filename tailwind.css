@@ -1,0 +1,127 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@layer utilities{
+    *{
+        @apply font-poppins;
+    }
+
+    body{
+        @apply bg-slate-100 ;
+    }
+
+    .master{
+        @apply overflow-x-hidden pl-[100px] pr-[20px];
+    }
+
+    /*TYPOGRAPHY*/
+    h1,h2,h3,h4,h5,h6,
+    h1 a,h2 a,h3 a,h4 a,h5 a,h6 a{
+        @apply font-poppins font-bold;
+    }
+    h1{@apply text-[32px];}
+    h2{@apply text-2xl;}
+    h3{@apply text-lg;}
+    h4{@apply text-md;}
+    h5{@apply text-sm;}
+    h6{@apply text-xs;}
+    p,li,th,td{@apply text-sm;}
+    label{@apply text-xs}
+    @media only screen and (min-width: 1600px){
+        h1{@apply text-4xl;}
+        h2{@apply text-[28px];}
+        h3{@apply text-[22px];}
+        h4{@apply text-lg;}
+        h5{@apply text-md;}
+        h6{@apply text-sm;}
+        p,li,th,td{@apply text-sm;}
+    }
+    /*TYPOGRAPHY END*/
+
+    /* MASONRY */
+    .masonry-grid-item { 
+        @apply w-[33.33%] p-2.5; 
+    }
+    .masonry-grid-item--width2 {
+        @apply w-[66.66%];
+    }
+    /* MASONRY END */
+
+    .sidenav{
+        @apply w-20 h-full p-5 bg-white border-r border-r-slate-200 fixed top-0 left-0 flex flex-col gap-5 justify-between items-center;
+    }
+    .top-nav{
+        @apply flex flex-col gap-5 items-center;
+    }
+    .top-nav .nav-item{
+        @apply bg-slate-200 rounded-xl flex items-center justify-center text-2xl w-10 h-10 text-slate-700 transition-all hover:text-slate-100 hover:bg-bi-blue-1;
+    }
+    .top-nav .nav-item.text{
+        @apply text-xs font-bold -rotate-90 bg-transparent whitespace-nowrap w-auto h-auto mt-8 hover:text-bi-blue-1;
+    }
+    .bottom-nav{
+        @apply w-full pb-5;
+    }
+    .bottom-nav p{
+        @apply -rotate-90 whitespace-nowrap text-xs text-slate-700;
+    }
+
+    header{
+        @apply flex justify-between items-center py-5 px-2.5 bg-slate-100 fixed top-0 w-[calc(100%-120px)] z-50;
+    }
+    .menu{
+        @apply flex justify-end items-center gap-8;
+    }
+    .menu .menu-item{
+        @apply text-sm text-slate-700 py-2 border-b-[3px] border-b-slate-100 transition-all hover:text-bi-blue-1;
+    }
+    .menu .menu-item.active{
+        @apply text-bi-blue-1 border-b-bi-blue-1;
+    }
+
+    .media-card{
+        @apply w-full relative rounded-2xl overflow-hidden;
+    }
+    .media-card .pic{
+        @apply w-full relative;
+    }
+    .media-card img{
+        @apply w-full;
+    }
+    .media-card .text{
+        @apply absolute -bottom-10 hover:bottom-0 left-0 w-full h-full p-8 flex flex-col justify-end gap-2 opacity-0 hover:opacity-100 transition-all bg-gradient-to-t from-slate-900 to-[rgba(0,0,0,0)];
+    }
+    .media-card:hover .text{
+        @apply bottom-0 opacity-100;
+    }
+    .media-card .text h3{
+        @apply text-lg text-white;
+    }
+    .media-card .text span{
+        @apply inline-block pl-2 border-l border-l-bi-blue-1 text-xs text-slate-200;
+    }
+    .media-card .text .link{
+        @apply text-xs text-slate-200 hover:text-white transition-all;
+    }
+    .overlink{
+        @apply absolute w-full z-50 h-full top-0 left-0;
+    }
+
+    #loader{
+        @apply opacity-100 fixed z-[9999] inset-0 bg-[rgba(255,255,255,0.8)] backdrop-blur-xl flex justify-center items-center;
+        transition: all ease-out 1s;
+    }
+    #loader .logo-loader {
+        @apply w-[120px] h-auto;
+        animation: pulse 1.5s infinite ease-in-out;
+    }
+    @keyframes pulse {
+    0% { transform: scale(1); opacity: 1; }
+    50% { transform: scale(1.1); opacity: 0.8; }
+    100% { transform: scale(1); opacity: 1; }
+    }
+    #loader.fade-out {
+        @apply opacity-0 pointer-events-none;
+    }
+}
+
