@@ -9,7 +9,8 @@ module.exports = {
         }
       },
       fontFamily:{
-        'poppins': '"Poppins", sans-serif'
+        'poppins': '"Poppins", sans-serif',
+        'bevietnam': '"Be Vietnam Pro", sans-serif'
       },
       fontSize: {
         'xsm': ['.8125rem', {

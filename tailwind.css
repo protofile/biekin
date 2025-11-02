@@ -3,7 +3,7 @@
 @tailwind utilities;
 @layer utilities{
     *{
-        @apply font-poppins;
+        @apply font-bevietnam;
     }
 
     body{
@@ -20,7 +20,7 @@
     /*TYPOGRAPHY*/
     h1,h2,h3,h4,h5,h6,
     h1 a,h2 a,h3 a,h4 a,h5 a,h6 a{
-        @apply font-poppins font-bold;
+        @apply font-bevietnam font-bold;
     }
     h1{@apply text-[32px];}
     h2{@apply text-2xl;}
@@ -28,7 +28,7 @@
     h4{@apply text-md;}
     h5{@apply text-sm;}
     h6{@apply text-xs;}
-    p,li,th,td{@apply text-sm;}
+    p,li,th,td{@apply text-sm text-slate-600;}
     label{@apply text-xs}
     @media only screen and (min-width: 1600px){
         h1{@apply text-4xl;}
@@ -39,14 +39,24 @@
         h6{@apply text-sm;}
         p,li,th,td{@apply text-sm;}
     }
+    ul{
+        @apply pl-5 list-outside list-disc;
+    }
     /*TYPOGRAPHY END*/
 
     /* MASONRY */
     .masonry-grid-item { 
         @apply w-[33.33%] p-2.5; 
     }
-    .masonry-grid-item--width2 {
-        @apply w-[66.66%];
+    @media only screen and (max-width:768px){
+        .masonry-grid-item{
+            @apply w-1/2;
+        }
+    }
+    @media only screen and (max-width:480px){
+        .masonry-grid-item{
+            @apply w-full px-0;
+        }
     }
     /* MASONRY END */
 
@@ -127,12 +137,12 @@
         @apply opacity-0 pointer-events-none;
     }
 
-    .article{
+    .article, .content-wrapper{
         @apply max-w-[960px] mx-auto;
     }
 
     .article-sidebar{
-        @apply flex flex-col gap-5;
+        @apply flex flex-col gap-5 w-full;
     }
     .article-sidebar-item{
         @apply flex gap-2 items-start w-full;
@@ -144,10 +154,29 @@
         @apply flex flex-col gap-0;
     }
     .article-sidebar-text h5{
-        @apply text-[11px];
+        @apply text-[11px] font-bold;
     }
     .article-sidebar-text span{
         @apply text-xs text-slate-700;
+    }
+
+    .main-img-slider{
+        @apply mb-5;
+    }
+
+    .owl-carousel .owl-prev,
+    .owl-carousel .owl-next{
+        @apply !bg-slate-200 !shadow-lg rounded-full w-10 h-10 flex justify-center items-center absolute top-1/2 -translate-y-1/2;
+    }
+    .owl-carousel .owl-prev{
+        @apply left-0 -translate-x-1/2;
+    }
+    .owl-carousel .owl-next{
+        @apply right-0 translate-x-1/2;
+    }
+
+    #sync2{
+        @apply mb-20;
     }
 
     .ratio{
@@ -199,7 +228,7 @@
         @apply list-inside pl-5 list-decimal;
     }
     .article-ct img{
-        @apply w-full rounded-lg;
+        @apply w-full;
     }
     .article-ct table{
         @apply w-full;
@@ -248,6 +277,71 @@
     .news-card-v img{
         @apply rounded-2xl;
     }
+
+    .burger-bt{
+        @apply relative w-10 h-10 transition-all;
+    }
+    .burger-bt span{
+        @apply bg-slate-700 w-6 h-0.5 absolute top-1/2 left-1/2 -translate-x-1/2 transition-all;
+    }
+    .burger-bt span:first-child{
+        @apply -translate-y-2 w-4;
+    }
+    .burger-bt span:last-child{
+        @apply translate-y-2 w-4;
+    }
+    .burger-bt.active{
+        @apply rotate-90;
+    }
+    .burger-bt.active span:first-child{
+        @apply rotate-45 translate-y-0 w-5;
+    }
+    .burger-bt.active span:nth-child(2){
+        @apply opacity-0;
+    }
+    .burger-bt.active span:last-child{
+        @apply -rotate-45 translate-y-0 w-5;
+    }
+
+    .member-card{
+        @apply flex items-center gap-5 mb-5;
+    }
+    .member-card .pic{
+        @apply w-[92px] flex-grow-0 flex-shrink-0;
+    }
+
+    @media only screen and (max-width: 768px){
+        .master{
+            @apply pl-[80px];
+        }
+        .sidenav{
+            @apply px-2 w-[60px];
+        }
+        .menu{
+            @apply fixed top-20 -right-[200px] py-5 px-5 gap-2 items-end w-[200px] bg-white shadow-2xl flex-col transition-all;
+        }
+
+        .menu.show{
+            @apply right-5;
+        }
+        header{
+            @apply w-[calc(100%-100px)] px-0;
+        }
+        .logo img{
+            @apply h-7 object-contain;
+        }
+        .main-img-slider{
+            @apply mb-2;
+        }
+        #sync2{
+            @apply mb-10;
+        }
+
+        .member-card .pic{
+            @apply w-16;
+        }
+    }
+
 
 }
 
